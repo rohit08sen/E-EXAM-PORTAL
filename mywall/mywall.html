@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wall</title>
+    <link rel="stylesheet" href="mywall.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="links">
+        <a href="../repo/repo.html">My Repo</a>
+        <a href="../mywall/mywall.html">My Wall</a>
+        <a href="../forum/forum.html">Forum</a>
+        <a href="../exam/online.html">Online Exam</a>
+      </div>
+      <div class="return">
+        <a href="../main/index.html">Return Home</a>
+
+
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="my-wall-box">
+            <!-- My Wall Header -->
+            <div class="my-wall-header">MY WALL</div>
+
+            <!-- User Info Section -->
+            <div class="user-info">
+                <!-- Photo -->
+                <div class=""><img src="my.jpg" alt=""b class="user-photo"></div>
+
+                <!-- Name -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Your Name" >
+
+                <!-- DOB -->
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" >
+
+                <!-- Gender -->
+            
+                <!-- Mail -->
+                <label for="mail">Mail:</label>
+                <input type="email" id="mail" placeholder="Email Address" >
+
+                <!-- Phone -->
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" placeholder="Phone Number" >
+
+                <!-- Address -->
+                <label for="address">Address:</label>
+                <textarea id="address" rows="2" placeholder="Your Address" ></textarea>
+
+                <!-- Skills -->
+                <label for="skills">Skills:</label>
+                <textarea id="skills" rows="2" placeholder="List of Skills"></textarea>
+
+                <!-- Contribution -->
+               
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button class="edit-btn" onclick="toggleEdit(true)">Edit</button>
+                <button class="save-btn" onclick="toggleEdit(false)" disabled>Save</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

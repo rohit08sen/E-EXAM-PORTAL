@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam</title>
+    <link rel="stylesheet" href="online.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="links">
+          <a href="../repo/repo.html">My Repo</a>
+          <a href="../mywall/mywall.html">My Wall</a>
+          <a href="../forum/forum.html">Forum</a>
+          <a href="../exam/online.html">Online Exam</a>
+        </div>
+        <div class="return">
+          <a href="../main/index.html">Return Home</a>
+  
+  
+        </div>
+      </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="online-exam-box">
+            <!-- Online Exam Header -->
+            <div class="online-exam-header">ONLINE EXAM</div>
+
+            <!-- Student Info Section -->
+            <div class="student-info">
+                <div class="student-photo"><img src="my.jpg" class="student-photo" alt=""></div>
+                <div class="student-details">
+                    <label>Name:Rohit Deepti</label>
+                    <div></div>
+                    <label>ID:12345</label>
+                    <div></div>
+                </div>
+            </div>
+
+            <!-- Exam Details Section -->
+            <div class="exam-details">
+                <label for="subject">Subject:</label>
+                <select id="subject">
+                    <option value="math">Mathematics</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                </select>
+
+                <label>Rules for Exam:</label>
+                <div class="rules">
+                    <ul>
+                        <li>Time Limit: 60 minutes</li>
+                        <li>No negative marking</li>
+                        <li>Open book not allowed</li>
+                    </ul>
+                </div>
+
+                <label>Total Marks:</label>
+                <input type="text" value="100" disabled>
+
+                <label>Pass Mark:</label>
+                <input type="text" value="40" disabled>
+            </div>
+
+            <!-- Start Exam Button -->
+            <button class="start-exam-btn">Start Exam</button>
+        </div>
+    </div>
+
+</body>
+</html>

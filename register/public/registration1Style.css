@@ -1,0 +1,133 @@
+
+        /* Reset margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Full-page background styling */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Make body take full viewport height */
+            margin: 0;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling on the body */
+        }
+
+        /* Background overlay for blurring */
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.7);
+          -webkit-backdrop-filter: blur(5px); /* For Safari and older Chrome versions */
+          backdrop-filter: blur(5px); /* Standard */
+        }
+        
+
+        /* Registration container styling */
+        .register-container {
+            position: relative;
+            width: 700px; /* Increased width */
+            max-width: 90%; /* Ensure it doesn't go beyond 90% of the viewport width */
+            padding: 40px;
+            background: linear-gradient(135deg, #4a3a80, #2e4b7e); /* Darker gradient */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            z-index: 1;
+            color: #fff;
+            max-height: 90vh; /* Limit height to 90% of the viewport */
+            overflow-y: auto; /* Enable vertical scroll if content exceeds height */
+        }
+
+        /* Heading styling */
+        .register-container h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Input field styling */
+        .inp {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .inp:focus {
+            outline: none;
+            border-color: #4a74d2;
+        }
+
+        /* Label styling */
+        label {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        /* Register button styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #4a74d2;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Select and textarea styling */
+        select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        /* Footer link styling */
+        .register-container a {
+            color: #fff;
+            font-size: 0.9em;
+            text-decoration: none;
+        }
+
+        .register-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .register-container {
+                width: 90%; /* Adjust for mobile view */
+                padding: 20px;
+            }
+        }

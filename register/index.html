@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="public/registration1Style.css" />
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="register-container">
+      <h2>Register</h2>
+      <form
+        action="http://localhost:3000/submit-registration"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <table style="width: 100%; color: #fff">
+          <!-- Name Field -->
+          <tr>
+            <td><label for="name">Name:</label></td>
+            <td>
+              <input
+                class="inp"
+                type="text"
+                id="name"
+                name="name"
+                required
+                size="50"
+              />
+            </td>
+          </tr>
+
+          <!-- Password Field -->
+          <tr>
+            <td><label for="password">Password:</label></td>
+            <td>
+              <input
+                class="inp"
+                type="password"
+                id="password"
+                name="password"
+                required
+                size="50"
+              />
+            </td>
+          </tr>
+
+          <!-- Email Field -->
+          <tr>
+            <td><label for="email">Email:</label></td>
+            <td>
+              <input
+                class="inp"
+                type="email"
+                id="email"
+                name="email"
+                required
+                size="50"
+              />
+            </td>
+          </tr>
+
+          <!-- Age Field -->
+          <tr>
+            <td><label for="age">Age:</label></td>
+            <td>
+              <input
+                class="inp"
+                type="text"
+                id="age"
+                name="age"
+                required
+                size="50"
+              />
+            </td>
+          </tr>
+
+          <!-- Gender Field -->
+          <tr>
+            <td><label for="gender">Gender:</label></td>
+            <td>
+              <input
+                class="gen"
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+              />
+              <label for="male">Male</label>
+              <input
+                class="gen"
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+              />
+              <label for="female">Female</label>
+            </td>
+          </tr>
+
+          <!-- College Address Field -->
+          <tr>
+            <td><label for="college-address">College Address:</label></td>
+            <td>
+              <textarea
+                class="inp"
+                id="college-address"
+                name="college-address"
+                required
+                rows="4"
+                cols="50"
+              ></textarea>
+            </td>
+          </tr>
+
+          <!-- Branch Field -->
+          <tr>
+            <td><label for="branch">Branch:</label></td>
+            <td>
+              <select id="branch" name="branch" required>
+                <option value="">Select</option>
+                <option value="cse">CSE</option>
+                <option value="cst">CST</option>
+                <option value="cen">CEN</option>
+                <option value="ece">ECE</option>
+                <option value="eee">EEE</option>
+                <option value="eie">EIE</option>
+              </select>
+            </td>
+          </tr>
+
+          <!-- Technical Skills Field -->
+          <tr>
+            <td><label for="TechnicalSkills">Technical Skills:</label></td>
+            <td>
+              <input type="checkbox" id="C" name="TechnicalSkills" value="C" />
+              <label for="C">C</label><br />
+              <input
+                type="checkbox"
+                id="Python"
+                name="TechnicalSkills"
+                value="Python"
+              />
+              <label for="Python">Python</label><br />
+              <input
+                type="checkbox"
+                id="Java"
+                name="TechnicalSkills"
+                value="Java"
+              />
+              <label for="Java">Java</label><br />
+              <input
+                type="checkbox"
+                id="JSP"
+                name="TechnicalSkills"
+                value="JSP"
+              />
+              <label for="JSP">JSP</label><br />
+            </td>
+          </tr>
+
+          <!-- Resume Upload Field -->
+          <tr>
+            <td><label for="resume">Resume Upload:</label></td>
+            <td><input type="file" id="resume" name="resume" required /></td>
+          </tr>
+
+          <!-- Image Upload Field -->
+          <tr>
+            <td><label for="image">Image Upload:</label></td>
+            <td><input type="file" id="image" name="image" required /></td>
+          </tr>
+        </table>
+
+        <!-- Submit Button -->
+        <button type="submit">Register</button>
+      </form>
+
+      <!-- Login Link -->
+      <div style="margin-top: 20px">
+        <a href="Login.html">Already have an account? Log in</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  display: flex;
+  height: 100vh;
+}
+/* Sidebar styling */
+.sidebar {
+  width: 400px;
+  background: linear-gradient(135deg, #4a3a80, #2e4b7e);
+  color: #fff;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.sidebar a {
+  color: #fff;
+  background-color: #0056b3;
+  text-decoration: none;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+  display: block;
+  font-size: larger;
+  /* border:1px solid black; */
+  border-radius: 15px;
+  margin-bottom: 7px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.sidebar a:hover {
+  background-color: #444;
+}
+/* Main content area styling */
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: blanchedalmond;
+}
+/* My Wall box styling */
+.my-wall-box {
+  width: 600px;
+  height: 800px;
+  padding: 20px;
+  /* border: 2px solid #000; */
+  border-radius: 8px;
+  text-align: center;
+  background: linear-gradient(135deg, #4a3a80, #2e4b7e);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.my-wall-header {
+  font-size:60px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:bisque;
+
+}
+.user-info {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.user-info label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.user-info input, .user-info textarea {
+  width: 100%;
+  padding: 5px;
+  height:50px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.user-photo {
+  margin: 10px 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.edit-btn, .save-btn {
+  padding: 5px 10px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.edit-btn {
+  background-color: #4CAF50;
+}
+.save-btn {
+  background-color: #2196F3;
+}

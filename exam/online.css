@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  display: flex;
+  height: 100vh;
+}
+/* Sidebar styling */
+.sidebar {
+  width: 400px;
+  background: linear-gradient(135deg, #4a3a80, #2e4b7e);
+  color: #fff;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar a {
+  color: #fff;
+  background-color: #0056b3;
+  text-decoration: none;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+  display: block;
+  font-size: larger;
+  /* border:1px solid black; */
+  border-radius: 15px;
+  margin-bottom: 7px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.sidebar a:hover {
+  background-color: #444;
+}
+/* Main content area styling */
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width:600px;
+  height:800px;
+  
+}
+/* Online Exam box styling */
+.online-exam-box {
+  width: 600px;
+  height: 800px;
+  padding: 20px;
+  border: 2px solid #000;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #4a3a80, #2e4b7e);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #fff;
+}
+.online-exam-header {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color:antiquewhite;
+
+}
+/* Student Info Section */
+.student-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color:antiquewhite;
+  font-size:30px;
+}
+.student-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin-right: 15px;
+}
+.student-details {
+  text-align: left;
+}
+.student-details label {
+  font-weight: bold;
+  color:antiquewhite
+}
+/* Exam Details Section */
+.exam-details {
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.exam-details label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+.exam-details select, .exam-details input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.rules {
+  margin-top: 10px;
+}
+/* Start Exam Button */
+.start-exam-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+}
