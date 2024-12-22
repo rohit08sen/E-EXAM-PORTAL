@@ -33,6 +33,10 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html")); // Adjust path as needed
 });
 
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "Login.html")); // Adjust path as needed
+});
+
 // Check DB Connection Route
 app.get("/check-db-connection", (req, res) => {
   db.ping((err) => {
@@ -71,7 +75,17 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Handle form submission
+// Helper function to send alert and redirect
+function sendAlertAndRedirect(res, message, redirectUrl) {
+  res.send(`
+    <script>
+      alert('${message}');
+      window.location.href = '${redirectUrl}';
+    </script>
+  `);
+}
+
+// Handle form submission (Registration)
 app.post(
   "/submit-registration",
   upload.fields([{ name: "resume" }, { name: "image" }]),
@@ -85,7 +99,7 @@ app.post(
         gender,
         college_address,
         branch,
-        TechnicalSkills, // Fixed variable name
+        TechnicalSkills,
       } = req.body;
 
       const resumePath =
@@ -106,41 +120,45 @@ app.post(
         return res.status(400).send("Name, password, and email are required.");
       }
 
-      // SQL query to insert user data into the database
-      const query = `
-        INSERT INTO users (name, password, email, age, gender, college_address, branch, technical_skills, resume_path, image_path)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `;
-      const values = [
-        name,
-        password,
-        email,
-        age,
-        gender,
-        college_address,
-        branch,
-        technicalSkills,
-        resumePath,
-        imagePath,
-      ];
-
-      // Execute SQL query
-      db.query(query, values, (err, result) => {
+      // Check for duplicate email
+      const duplicateQuery = "SELECT * FROM users WHERE email = ?";
+      db.query(duplicateQuery, [email], (err, results) => {
         if (err) {
-          console.error("Error inserting data:", err);
+          console.error("Error checking for duplicates:", err);
           return res.status(500).send("An error occurred while registering.");
         }
 
-        // Send a success HTML response
-        res.send(`
-         
-            <script>
-              
-                alert('Registration successful!');
-              
-            </script>
-          
-        `);
+        if (results.length > 0) {
+          return sendAlertAndRedirect(res, "Email is already registered.", "/");
+        }
+
+        // SQL query to insert user data into the database (No hashing)
+        const query = `
+          INSERT INTO users (name, password, email, age, gender, college_address, branch, technical_skills, resume_path, image_path)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `;
+        const values = [
+          name,
+          password, // Store the password as it is
+          email,
+          age,
+          gender,
+          college_address,
+          branch,
+          technicalSkills,
+          resumePath,
+          imagePath,
+        ];
+
+        // Execute SQL query
+        db.query(query, values, (err, result) => {
+          if (err) {
+            console.error("Error inserting data:", err);
+            return res.status(500).send("An error occurred while registering.");
+          }
+
+          sendAlertAndRedirect(res, "Registration successful!", "http://127.0.0.1:5501/register/Login.html");
+        });
       });
     } catch (error) {
       console.error("Error handling request:", error);
@@ -148,6 +166,52 @@ app.post(
     }
   }
 );
+
+
+
+// Handle login request (No password hashing)
+// Helper function to send alert and redirect to the specified URL
+function sendAlertAndRedirect(res, message, redirectUrl) {
+  res.send(`
+    <script>
+      alert('${message}');
+      window.location.href = '${redirectUrl}'; // Redirect to the specified URL
+    </script>
+  `);
+}
+
+// Handle login request (No password hashing)
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  // Check if both username and password are provided
+  if (!username || !password) {
+    return res.status(400).send("Username and password are required.");
+  }
+
+  // Query to find user in the database
+  const query = "SELECT * FROM users WHERE name = ?";
+  const values = [username];
+
+  db.query(query, values, (err, results) => {
+    if (err) {
+      console.error("Error fetching user:", err);
+      return res.status(500).send("An error occurred while logging in.");
+    }
+
+    if (results.length > 0) {
+      // Directly compare the password without hashing
+      if (password === results[0].password) {
+        sendAlertAndRedirect(res, "Login successful!", "http://127.0.0.1:5501/register/Login.html");
+      } else {
+        sendAlertAndRedirect(res, "Invalid username or password.", "http://127.0.0.1:5501/register/Login.html");
+      }
+    } else {
+      sendAlertAndRedirect(res, "Invalid username or password.", "http://127.0.0.1:5501/register/Login.html");
+    }
+  });
+});
+
 
 
 // Start server on port 3000

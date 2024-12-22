@@ -11,8 +11,8 @@
       function validateForm(event) {
         event.preventDefault(); // Prevent form submission until validation passes
 
-        const username = document.forms["loginForm"]["username"].value;
-        const password = document.forms["loginForm"]["password"].value;
+        const username = document.forms["loginForm"]["username"].value.trim();
+        const password = document.forms["loginForm"]["password"].value.trim();
 
         // Validate username
         if (username === "") {
@@ -30,7 +30,6 @@
         }
 
         // If all validations pass, submit the form
-        alert("Form submitted successfully!");
         document.forms["loginForm"].submit();
       }
 
@@ -46,15 +45,20 @@
     <div class="login-container">
       <img src="facelogo.png" alt="Logo" />
       <h2>Log In</h2>
-      <form action="http://localhost:3000/login">
-        <input type="text" name="username" placeholder="Username" />
-        <input type="password" name="password" placeholder="Password" />
-        <div style="text-align: left; margin-top: 10px">
-          <input type="checkbox" id="remember-me" />
-          <label for="remember-me">Remember me</label>
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <form
+      name="loginForm"
+      action="http://localhost:3000/login"  
+      method="POST">
+    
+      <input type="text" name="username" placeholder="Username" />
+      <input type="password" name="password" placeholder="Password" />
+      <div style="text-align: left; margin-top: 10px">
+        <input type="checkbox" id="remember-me" name="remember-me" />
+        <label for="remember-me">Remember me</label>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    
 
       <!-- Social Login Buttons -->
       <div class="social-login">
